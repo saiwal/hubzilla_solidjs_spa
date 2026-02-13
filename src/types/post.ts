@@ -1,9 +1,9 @@
-export type Post = {
+export interface Post {
   id: string;
-  parentId?: string;
+  parent: string;
+  body: string;
   authorName: string;
   authorAvatar: string;
-  body: string;
   created: string;
   children: Post[];
-};
+}

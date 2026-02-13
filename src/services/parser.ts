@@ -1,13 +1,13 @@
 import type { Post } from "../types/post";
 
-export function activityToPost(activity: any): Post {
+export function activityToPost(item: any): Post {
   return {
-    id: activity.id,
-    parentId: activity.parent,
-    authorName: activity.author?.name,
-    authorAvatar: activity.author?.photo,
-    body: activity.body,
-    created: activity.created,
-    children: [],
+    id: item.id,
+    parent: item.parent,
+    authorName: item.author?.xchan_name ?? "Unknown",
+    authorAvatar: item.author?.xchan_photo_s ?? "",
+    body: item.body ?? "",
+    created: item.created,
+    children: []
   };
 }

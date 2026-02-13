@@ -7,5 +7,14 @@ export default defineConfig({
 		UnoCSS(),
 		solid(),
 	],
+	server: {
+    proxy: {
+      "/api": {
+        target: "https://hz-ddev.ddev.site",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+	},
   base: './',
 })
