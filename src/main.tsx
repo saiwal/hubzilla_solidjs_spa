@@ -1,14 +1,12 @@
 import { render } from "solid-js/web";
-import { Router } from "@solidjs/router";
-import App from "./App";
-import "uno.css";
-
-console.log("SPA booting...");
+import { Router, Route } from "@solidjs/router";
+import Layout from "./Layout";
+import Network from "./modules/network/routes";
 
 render(
   () => (
     <Router>
-      <App />
+      <Route path="/" component={Network} />
     </Router>
   ),
   document.getElementById("root")!

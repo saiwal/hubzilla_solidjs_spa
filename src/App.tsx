@@ -1,14 +1,16 @@
-import { Route } from "@solidjs/router";
-import Layout from "./components/layout/Layout";
-import Stream from "./pages/Stream";
-import Dashboard from "./pages/Dashboard";
+import { Route, A } from "@solidjs/router";
+import { lazy } from "solid-js";
+
+const Network = lazy(() => import("./modules/network/routes"));
 
 export default function App() {
   return (
-    <Route path="/" component={Layout}>
-      <Route path="/" component={Stream} />
-      <Route path="/stream" component={Stream} />
-      <Route path="/dashboard" component={Dashboard} />
-    </Route>
+    <>
+      <nav style={{ padding: "1rem", borderBottom: "1px solid #ccc" }}>
+        <A href="/">Network</A>
+      </nav>
+
+      <Route path="/" component={Network} />
+    </>
   );
 }
