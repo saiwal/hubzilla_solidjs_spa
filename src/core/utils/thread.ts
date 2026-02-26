@@ -1,11 +1,11 @@
-import type { Post } from "../../modules/network/types";
+import type { Post } from "../../types/types";
 
 export interface ThreadNode extends Post {
   children: ThreadNode[];
 }
 
 export function buildThreadTree(posts: Post[]): ThreadNode[] {
-  const map = new Map<number, ThreadNode>();
+  const map = new Map<string, ThreadNode>();
   const roots: ThreadNode[] = [];
 
   posts.forEach((post) => {

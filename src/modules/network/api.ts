@@ -1,5 +1,5 @@
 import { apiGet } from "../../core/api/client";
-import type { Post } from "./types";
+import type { Post } from "../../types/types";
 import { mapActivityToPost } from "./mapper";
 
 export async function fetchNetworkStream(): Promise<Post[]> {

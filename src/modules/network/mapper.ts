@@ -1,4 +1,4 @@
-import type { Post } from "./types";
+import type { Post } from "../../types/types";
 
 export function mapActivityToPost(activity: any): Post {
   return {

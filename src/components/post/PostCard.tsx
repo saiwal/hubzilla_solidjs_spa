@@ -1,4 +1,4 @@
-import type { ThreadNode } from "../../../core/utils/thread";
+import type { ThreadNode } from "../../core/utils/thread";
 import CommentThread from "./CommentThread";
 
 export default function PostCard(props: { post: ThreadNode }) {

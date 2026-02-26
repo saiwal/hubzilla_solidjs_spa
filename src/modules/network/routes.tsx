@@ -1,6 +1,6 @@
 import { onMount } from "solid-js";
 import { posts, loadNetwork, loading } from "./store";
-import StreamList from "./components/StreamList";
+import StreamList from "../../components/post/StreamList";
 
 export default function Network() {
   onMount(loadNetwork);

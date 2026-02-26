@@ -3,7 +3,7 @@ import { render } from "solid-js/web";
 import { Router, Route } from "@solidjs/router";
 import { For, lazy, Suspense } from "solid-js";
 import type { Component } from "solid-js";
-import Layout from "./Layout";
+import Layout from "./app/layout/Layout";
 
 const modules = import.meta.glob<{
   default: Component;
