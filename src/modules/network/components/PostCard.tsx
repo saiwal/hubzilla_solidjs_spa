@@ -7,8 +7,8 @@ export default function PostCard(props: { post: ThreadNode }) {
   return (
     <div style={{ border: "1px solid #ddd", padding: "1rem", margin: "1rem 0" }}>
       <div style={{ display: "flex", gap: "0.5rem", "align-items": "center" }}>
-        <img src={post.author.avatar} width="40" height="40" />
-        <strong>{post.author.name}</strong>
+        <img src={post.authorAvatar} width="40" height="40" />
+        <strong>{post.authorName}</strong>
         <span style={{ color: "#888" }}>
           {new Date(post.created).toLocaleString()}
         </span>
