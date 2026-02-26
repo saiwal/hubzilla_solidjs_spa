@@ -1,4 +1,4 @@
-import type { ThreadNode } from "../../../../core/utils/thread";
+import type { ThreadNode } from "../../../core/utils/thread";
 import CommentThread from "./CommentThread";
 
 export default function PostCard(props: { post: ThreadNode }) {
@@ -6,7 +6,7 @@ export default function PostCard(props: { post: ThreadNode }) {
 
   return (
     <div style={{ border: "1px solid #ddd", padding: "1rem", margin: "1rem 0" }}>
-      <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+      <div style={{ display: "flex", gap: "0.5rem", "align-items": "center" }}>
         <img src={post.author.avatar} width="40" height="40" />
         <strong>{post.author.name}</strong>
         <span style={{ color: "#888" }}>
@@ -15,7 +15,7 @@ export default function PostCard(props: { post: ThreadNode }) {
       </div>
 
       <div
-        style={{ marginTop: "0.5rem" }}
+        style={{ "margin-top": "0.5rem" }}
         innerHTML={post.body}
       />
 

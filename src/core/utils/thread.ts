@@ -1,4 +1,4 @@
-import type { Post } from "@/modules/network/types";
+import type { Post } from "../../modules/network/types";
 
 export interface ThreadNode extends Post {
   children: ThreadNode[];

@@ -1,7 +1,7 @@
 import { createSignal } from "solid-js";
 import { fetchNetworkStream } from "./api";
 import { buildThreadTree } from "../../core/utils/thread";
-import type { ThreadNode } from "../../../core/utils/thread";
+import type { ThreadNode } from "../../core/utils/thread";
 
 const [posts, setPosts] = createSignal<ThreadNode[]>([]);
 const [loading, setLoading] = createSignal(false);
