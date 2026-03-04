@@ -6,7 +6,7 @@ export default function CommentThread(props: { comments: ThreadNode[] }) {
   if (!props.comments.length) return null;
 
   return (
-    <div style={{ "margin-left": "2rem", "margin-top": "1rem" }}>
+    <div style={{ "margin-left": "0.5rem", "margin-top": "1rem" }}>
       <For each={props.comments}>
         {(comment) => <PostCard post={comment} />}
       </For>
