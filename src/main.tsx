@@ -14,7 +14,7 @@ const routes = Object.entries(modules).map(([path, loader]) => {
   const name = match?.[1] ?? "";
 
   return {
-    path: name === "network" ? "/" : `/${name}`,
+    path: name === "dashboard" ? "/" : `/${name}`,
     component: lazy(loader),
   };
 });

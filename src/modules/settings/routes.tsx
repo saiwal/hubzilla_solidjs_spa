@@ -1,6 +1,6 @@
 import { onMount } from "solid-js";
 
-export default function Channel() {
+export default function Settings() {
   onMount(() => {
     console.log("Settings module mounted");
   });

@@ -2,12 +2,16 @@ import { apiGet } from "../../core/api/client";
 import type { Post } from "../../types/types";
 import { mapActivityToPost } from "./mapper";
 
-const HIDDEN_VERBS = new Set(['Like', 'Dislike', 'Announce', 'Accept', 'Reject', 'TentativeAccept']);
 
 function shouldDisplay(a: any): boolean {
+	const HIDDEN_VERBS = new Set(['Like', 'Dislike', 'Announce', 'Accept', 'Reject', 'TentativeAccept']);
   if (a.verb === 'Add' || a.verb === 'Remove') return false;
   if (a.flags?.includes('notshown')) return false;
   if (a.object_type === 'Answer') return false;
+	// Only hide reaction verbs when they are replies, not root posts
+  const isReply = a.message_id !== a.message_top;
+  if (isReply && HIDDEN_VERBS.has(a.verb)) return false;
+
   return true;
 }
 

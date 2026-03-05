@@ -4,7 +4,11 @@ export interface NavItemConfig {
 }
 
 export const mainNav: NavItemConfig[] = [
-  { label: "Network", href: "/" },
+	{ label: "Dashboard", href: "/"},
+  { label: "Network Feed", href: "/network" },
   { label: "Channel", href: "/channel" },
+  { label: "Directory", href: "/directory" },
+  { label: "Photos", href: "/photos" },
+  { label: "Files", href: "/files" },
   { label: "Settings", href: "/settings" },
 ];
