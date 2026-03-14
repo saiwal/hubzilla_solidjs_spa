@@ -1,9 +1,9 @@
 export interface Post {
   id: string;
-  mid: string;         // full message_id URL
-  parent_mid: string;  // direct parent message_id URL  
-  thr_parent: string;  // same as parent_mid from this API
-  top_mid: string;     // thread root message_id URL
+  mid: string; // full message_id URL
+  parent_mid: string; // direct parent message_id URL
+  thr_parent: string; // same as parent_mid from this API
+  top_mid: string; // thread root message_id URL
   parent: string;
   body: string;
   title: string;
@@ -18,4 +18,7 @@ export interface Post {
   flags: string[];
   permalink: string;
   children: Post[];
+  likeCount: number;
+  dislikeCount: number;
+  repeatCount: number;
 }

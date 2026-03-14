@@ -1,4 +1,4 @@
-import { apiGet } from "../../core/api/client";
+import { moduleGet } from "../../core/api/client";
 import type { Post } from "../../types/types";
 import { mapActivityToPost } from "./mapper";
 
@@ -14,7 +14,7 @@ function shouldDisplay(a: any): boolean {
 }
 
 export async function fetchNetworkStream(): Promise<Post[]> {
-  const activities = await apiGet<any[]>("network/stream?start=0&records=10");
+  const activities = await moduleGet<any[]>("network?format=json");
   return activities
     .filter(shouldDisplay)
     .map(mapActivityToPost);

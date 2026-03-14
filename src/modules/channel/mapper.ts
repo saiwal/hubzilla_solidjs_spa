@@ -14,36 +14,32 @@ export function shouldDisplayActivity(activity: any): boolean {
   return true;
 }
 
-export function mapActivityToPost(activity: any): Post {
-  // Prefer pre-rendered HTML from the nested object if available
-  const renderedHtml =
-    activity.object?.object?.content ||   // nested Create/Add wrapper
-    activity.object?.content ||            // direct activity object
-    null;
 
-  const body = renderedHtml
-    ? sanitizeHtml(renderedHtml)
-    : sanitizeHtml(bbcodeToHtml(activity.body ?? ''));
+export function mapActivityToPost(activity: any): Post {
+  const body = sanitizeHtml(bbcodeToHtml(activity.body ?? ''));
 
   return {
-    id: activity.uuid,
-    mid: activity.message_id,           // full URL, e.g. https://.../item/UUID
-    parent_mid: activity.message_parent, // direct parent's message_id URL
-    thr_parent: activity.message_parent, // same — Hubzilla API uses message_parent for direct parent
-    top_mid: activity.message_top,       // thread root's message_id URL
-    parent: activity.uuid,               // fallback, not used for threading
+    id:           activity.uuid,
+    mid:          activity.mid,            // was: activity.message_id
+    parent_mid:   activity.parent_mid,     // was: activity.message_parent
+    thr_parent:   activity.thr_parent,     // was: activity.message_parent
+    top_mid:      activity.message_top,    // same
+    parent:       activity.uuid,
     body,
-    title: activity.title ?? '',
-    authorName: activity.author?.name ?? '',
+    title:        activity.title ?? '',
+    authorName:   activity.author?.name ?? '',
     authorAvatar: activity.author?.photo?.src ?? '',
-    authorUrl: activity.author?.url ?? '',
-    created: activity.created,
-    commented: activity.commented,
-    edited: activity.edited,
-    verb: activity.verb,
-    obj_type: activity.object_type,
-    flags: activity.flags ?? [],
-    permalink: activity.permalink ?? '',
-    children: [],
+    authorUrl:    activity.author?.url ?? '',
+    created:      activity.created,
+    commented:    activity.commented,
+    edited:       activity.edited,
+    verb:         activity.verb,
+    obj_type:     activity.obj_type,       // was: activity.object_type
+    flags:        activity.flags ?? [],
+    permalink:    activity.permalink ?? '',
+    likeCount:    activity.like_count ?? 0,
+    dislikeCount: activity.dislike_count ?? 0,
+    repeatCount:  activity.announce_count ?? 0,
+    children:     [],
   };
 }

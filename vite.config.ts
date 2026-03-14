@@ -8,7 +8,7 @@ export default defineConfig({
 	],
   build: {
     // Output directly to your Hubzilla theme asset folder
-    outDir: path.resolve(__dirname, '../hz-ddev/core/extend/theme/utsukta-themes/solidtest/assets'),
+    outDir: path.resolve(__dirname, '../hz-ddev/core/extend/theme/utsukta-themes/solidified/assets'),
     emptyOutDir: true,
 
     rollupOptions: {

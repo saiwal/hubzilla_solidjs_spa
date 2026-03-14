@@ -4,12 +4,19 @@ import { Router, Route } from "@solidjs/router";
 import { For, lazy, Suspense } from "solid-js";
 import type { Component } from "solid-js";
 import Layout from "./app/layout/Layout";
+import { useNavigate } from "@solidjs/router";
 
+function RedirectToRoot() {
+  const navigate = useNavigate();
+  navigate("/", { replace: true });
+  return null;
+}
 const modules = import.meta.glob<{
   default: Component;
 }>("./modules/**/routes.tsx");
 
-const routes = Object.entries(modules).map(([path, loader]) => {
+const routes = [ 
+	...Object.entries(modules).map(([path, loader]) => {
   const match = path.match(/\.\/modules\/([^/]+)\/routes\.tsx$/);
   const name = match?.[1] ?? "";
 
@@ -17,7 +24,9 @@ const routes = Object.entries(modules).map(([path, loader]) => {
     path: name === "dashboard" ? "/" : `/${name}`,
     component: lazy(loader),
   };
-});
+}),
+	{ path: "*", component: RedirectToRoot },
+];
 
 render(
   () => (
